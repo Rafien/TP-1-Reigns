@@ -30,22 +30,26 @@ public class Reigns {
     public static void main(String[] args){
 
         // début du jeu
-        System.out.println("Bienvenue sur Reigns");
+        //fonction debut du jeu
 
+        System.out.println("Bienvenue sur Reigns");
+        // fonction init
         initBanqueQuestions();
 
         System.out.println("Création du personnage...");
 
         initPersonnage();
-
+        // fonction afficher infos
         System.out.println(personnage.getGenre().longRegne()
                 +" "+personnage.getNom());
 
         personnage.AfficheJauges();
 
         // tirage des questions
+        //fonction Vivant
         int nbTours = 0;
         while(!personnage.finDuJeu()){
+            //fonction TourDeJeu
             nbTours++;
             Question question = getQuestionAleatoire();
             reponseQuestion(question);
@@ -53,6 +57,8 @@ public class Reigns {
         }
 
         // fin du jeu
+        //fonction fin jeu
+        //fonction affichageFin
         System.out.println(
                 personnage.getNom()
                         + " a perdu ! Son règne a duré "
@@ -70,14 +76,17 @@ public class Reigns {
     private static void reponseQuestion(Question question){
         question.afficheQuestion();
         // récupère la réponse
+        //fonction recupQuestion
         Scanner scanner = new Scanner(System.in);
         String reponse = "";
+        //fonction interpreterReponse
         while(!reponse.equals("G") && !reponse.equals("D")){
             System.out.println("Entrez la réponse (G ou D)");
             System.out.flush();
             reponse = scanner.nextLine();
         }
         // applique les malus
+        //fonction appliqueMalus
         if(reponse.equals("G")){
             question.appliqueEffetsGauche(personnage);
         }else{
@@ -91,20 +100,23 @@ public class Reigns {
      */
 
     private static void initPersonnage(){
+        //fonction scanName
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du personnage: ");
         System.out.flush();
         String nom = scanner.nextLine();
+        //fonction scanGenre
         System.out.println(
                 "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
         int genre = scanner.nextInt();
+        //fonction setupGenre
         Genre roiReine;
         if(genre==1){
             roiReine = Genre.ROI;
         }else{
             roiReine = Genre.REINE;
         }
-
+        //fonction CreaPerso
         Reigns.personnage = new Personnage(nom,roiReine);
     }
 
@@ -113,6 +125,8 @@ public class Reigns {
      */
     private static void initBanqueQuestions(){
         questions = new ArrayList<>();
+        //for nbQuestion init Question i
+        //fonction initQi
         Question question1 = new Question(
                 "Main du roi",
                 "Le peuple souhaite libérer les prisonniers",

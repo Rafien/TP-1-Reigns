@@ -30,22 +30,7 @@ public class Reigns {
     public static void main(String[] args){
 
         // début du jeu
-        //fonction debut du jeu
-
-        System.out.println("Bienvenue sur Reigns");
-        // fonction init
-        initBanqueQuestions();
-
-        System.out.println("Création du personnage...");
-
-        initPersonnage();
-        // fonction afficher infos
-        System.out.println(personnage.getGenre().longRegne()
-                +" "+personnage.getNom());
-
-        personnage.AfficheJauges();
-
-        // tirage des questions
+        debutDeJeu();
         //fonction Vivant
         int nbTours = 0;
         while(!personnage.finDuJeu()){
@@ -66,6 +51,33 @@ public class Reigns {
                         + " tours");
 
     }
+
+    private static void debutDeJeu() {
+        System.out.println("Bienvenue sur Reigns");
+        initJeu();
+        afficherInfosPerso();
+
+    }
+
+    private static void initJeu() {
+        // tirage des questions
+        initBanqueQuestions();
+
+        System.out.println("Création du personnage...");
+        //initiation du personnage
+        initPersonnage();
+    }
+
+    private static void afficherInfosPerso() {
+        // fonction afficher infos
+        System.out.println(personnage.getGenre().longRegne()
+                +" "+personnage.getNom());
+
+        personnage.AfficheJauges();
+
+    }
+
+
 
     /**
      * Cette fonction permet de gérer la réponse à une question donnée. Elle affiche la question, demande à

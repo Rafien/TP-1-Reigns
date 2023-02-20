@@ -100,7 +100,6 @@ public class Reigns {
         }
         // applique les malus
         appliquerMalus(question);
-
     }
 
     private static void interpreterReponse(Question question, Scanner scanner) {
@@ -126,9 +125,7 @@ public class Reigns {
     private static void initPersonnage(){
         //fonction scanName
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du personnage: ");
-        System.out.flush();
-        String nom = scanner.nextLine();
+        scanName(scanner);
         //fonction scanGenre
         System.out.println(
                 "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
@@ -142,6 +139,12 @@ public class Reigns {
         }
         //fonction CreaPerso
         Reigns.personnage = new Personnage(nom,roiReine);
+    }
+
+    private static void scanName(Scanner scanner) {
+        System.out.println("Entrez le nom du personnage: ");
+        System.out.flush();
+        String nom = scanner.nextLine();
     }
 
     /**

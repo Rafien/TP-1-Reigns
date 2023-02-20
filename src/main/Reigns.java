@@ -31,14 +31,13 @@ public class Reigns {
 
         // début du jeu
         debutDeJeu();
-        //fonction Vivant
         int nbTours = 0;
+
+        //fonction Vivant
         while(!personnage.finDuJeu()){
             //fonction TourDeJeu
             nbTours++;
-            Question question = getQuestionAleatoire();
-            reponseQuestion(question);
-            personnage.AfficheJauges();
+            tourDeJeu();
         }
 
         // fin du jeu
@@ -50,6 +49,12 @@ public class Reigns {
                         +nbTours
                         + " tours");
 
+    }
+
+    private static void tourDeJeu() {
+        Question question = getQuestionAleatoire();
+        reponseQuestion(question);
+        personnage.AfficheJauges();
     }
 
     private static void debutDeJeu() {

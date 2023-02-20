@@ -95,16 +95,18 @@ public class Reigns {
         //fonction recupReponse
         Scanner scanner = new Scanner(System.in);
         question.reponse = "";
-        //fonction interpreterReponse
         while(!question.reponse.equals("G") && !question.reponse.equals("D")){
-            System.out.println("Entrez la réponse (G ou D)");
-            System.out.flush();
-            question.reponse = scanner.nextLine();
+            interpreterReponse(question, scanner);
         }
         // applique les malus
-        //fonction appliqueMalus
         appliquerMalus(question);
 
+    }
+
+    private static void interpreterReponse(Question question, Scanner scanner) {
+        System.out.println("Entrez la réponse (G ou D)");
+        System.out.flush();
+        question.reponse = scanner.nextLine();
     }
 
     private static void appliquerMalus(Question question) {

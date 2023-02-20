@@ -103,6 +103,11 @@ public class Reigns {
         }
         // applique les malus
         //fonction appliqueMalus
+        appliquerMalus(question);
+
+    }
+
+    private static void appliquerMalus(Question question) {
         if(question.reponse.equals("G")){
             question.appliqueEffetsGauche(personnage);
         }else{

@@ -67,7 +67,6 @@ public class Reigns {
     private static void initJeu() {
         // tirage des questions
         initBanqueQuestions();
-
         System.out.println("Création du personnage...");
         //initiation du personnage
         initPersonnage();
@@ -93,23 +92,24 @@ public class Reigns {
     private static void reponseQuestion(Question question){
         question.afficheQuestion();
         // récupère la réponse
-        //fonction recupQuestion
+        //fonction recupReponse
         Scanner scanner = new Scanner(System.in);
-        String reponse = "";
+        question.reponse = "";
         //fonction interpreterReponse
-        while(!reponse.equals("G") && !reponse.equals("D")){
+        while(!question.reponse.equals("G") && !question.reponse.equals("D")){
             System.out.println("Entrez la réponse (G ou D)");
             System.out.flush();
-            reponse = scanner.nextLine();
+            question.reponse = scanner.nextLine();
         }
         // applique les malus
         //fonction appliqueMalus
-        if(reponse.equals("G")){
+        if(question.reponse.equals("G")){
             question.appliqueEffetsGauche(personnage);
         }else{
             question.appliqueEffetsDroite(personnage);
         }
     }
+
 
     /**
      * Cette fonction permet d'initialiser le personnage joué. Elle demande à l'utilisateur de saisir le nom du personnage

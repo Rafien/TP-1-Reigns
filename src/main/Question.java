@@ -26,6 +26,8 @@ public class Question {
      * l'effet de la réponse de droite
      */
     protected String effetDroite;
+
+    public String reponse;
     /**
      * les effets sur les jauges pour la réponse de gauche
      */
@@ -53,6 +55,7 @@ public class Question {
         this.effetDroite = effetDroite;
         this.effetJaugeDroite = new TreeMap<>();
         this.effetJaugeGauche = new TreeMap<>();
+        this.reponse = "";
     }
 
     /**

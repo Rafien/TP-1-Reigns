@@ -20,3 +20,5 @@ Dans l’illustration suivante, vous voyez deux captures d’écran de la versio
 ![Reigns : Game of Thrones](exemple.png)
 
 La version proposée dans ce TP est une version textuelle de ce jeu.
+
+Binôme : Alertinime

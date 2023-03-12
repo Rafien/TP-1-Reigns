@@ -156,4 +156,26 @@ public class Jauge {
                 personnage.getJaugeArmee().getValeur()
                         +effet.getValue());
     }
+
+    /**
+     * Affiche une jauge avec un format graphique, en utilisant des "#" pour représenter la valeur de la jauge
+     * et des "_" pour représenter la valeur manquante.
+     *
+     * @param jauge La jauge à afficher
+     */
+    static void afficheJauge(Jauge jauge) {
+        String resultat = "[";
+        // valeur : ####
+        for(int i=0;i<jauge.getValeur();i++){
+            resultat += "#";
+        }
+        // on complète avec ____
+        for(int i=0;i<50-(jauge.getValeur()>0?jauge.getValeur():0);i++){
+            resultat += "_";
+        }
+        resultat += "] ";
+        // affichage du nom
+        resultat += jauge.getNom();
+        System.out.println(resultat);
+    }
 }

@@ -107,9 +107,9 @@ public class Reigns {
 
     private static void appliquerMalus(Question question) {
         if(question.reponse.equals("G")){
-            question.appliqueEffetsGauche(personnage);
+            Jauge.appliqueEffetsGauche(personnage, question);
         }else{
-            question.appliqueEffetsDroite(personnage);
+            Jauge.appliqueEffetsDroite(personnage, question);
         }
     }
 

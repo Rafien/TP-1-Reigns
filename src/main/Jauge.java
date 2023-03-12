@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Map;
+
 /**
  * Représente une jauge avec un nom, une valeur et un type.
  *
@@ -83,5 +85,59 @@ public class Jauge {
      */
     public void setType(TypeJauge type) {
         this.type = type;
+    }
+
+    /**
+     * Applique les effets associés au choix gauche sur un personnage donné.
+     *
+     * @param personnage le personnage sur lequel les effets doivent être appliqués
+     * @param question
+     */
+    public static void appliqueEffetsGauche(Personnage personnage, Question question){
+        appliqueEffets(Question.effetJaugeGauche, personnage);
+    }
+
+    /**
+     * Applique les effets associés au choix droit sur un personnage donné.
+     *
+     * @param personnage le personnage sur lequel les effets doivent être appliqués
+     * @param question
+     */
+    public static void appliqueEffetsDroite(Personnage personnage, Question question){
+        appliqueEffets(Question.effetJaugeDroite, personnage);
+    }
+
+    /**
+     * Applique les effets d'une jauge sur un personnage donné.
+     *
+     * @param effets les effets de jauge à appliquer
+     * @param personnage le personnage sur lequel les effets doivent être appliqués
+     */
+    private static void appliqueEffets(Map<TypeJauge, Integer> effets,
+                                       Personnage personnage){
+        for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
+            switch(effet.getKey()){
+                case ARMEE:
+                    personnage.getJaugeArmee().setValeur(
+                            personnage.getJaugeArmee().getValeur()
+                                    +effet.getValue());
+                    break;
+                case CLERGE:
+                    personnage.getJaugeClerge().setValeur(
+                            personnage.getJaugeClerge().getValeur()
+                                    +effet.getValue());
+                    break;
+                case FINANCE:
+                    personnage.getJaugeFinance().setValeur(
+                            personnage.getJaugeFinance().getValeur()
+                                    +effet.getValue());
+                    break;
+                case PEUPLE:
+                    personnage.getJaugePeuple().setValeur(
+                            personnage.getJaugePeuple().getValeur()
+                                    +effet.getValue());
+                    break;
+            }
+        }
     }
 }

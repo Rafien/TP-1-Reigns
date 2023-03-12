@@ -94,7 +94,7 @@ public class Jauge {
      * @param question
      */
     public static void appliqueEffetsGauche(Personnage personnage, Question question){
-        appliqueEffets(Question.effetJaugeGauche, personnage);
+        appliqueEffets(question.effetJaugeGauche, personnage);
     }
 
     /**
@@ -104,7 +104,7 @@ public class Jauge {
      * @param question
      */
     public static void appliqueEffetsDroite(Personnage personnage, Question question){
-        appliqueEffets(Question.effetJaugeDroite, personnage);
+        appliqueEffets(question.effetJaugeDroite, personnage);
     }
 
     /**

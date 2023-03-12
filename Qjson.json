@@ -1,0 +1,68 @@
+{
+  "lquestions": [
+    {
+      "nomPersonnage": "Main du roi",
+      "question": "Le peuple souhaite libérer les prisonniers",
+      "effetGauche": "Oui",
+      "effetDroite": "Non",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "PEUPLE": 5,
+        "ARMEE": -5
+      },
+      "effetJaugeDroite": { "PEUPLE": -7 }
+    },
+    {
+      "nomPersonnage": "Paysan",
+      "question": "Il n\u0027y a plus rien à manger",
+      "effetGauche": "Importer de la nourriture",
+      "effetDroite": "Ne rien faire",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "PEUPLE": 5,
+        "FINANCE": -5
+      },
+      "effetJaugeDroite": { "PEUPLE": -5 }
+    },
+    {
+      "nomPersonnage": "Prêtre",
+      "question": "Les dieux sont en colère",
+      "effetGauche": "Faire un sacrifice",
+      "effetDroite": "Ne rien faire",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "CLERGE": 5,
+        "PEUPLE": -3
+      },
+      "effetJaugeDroite": { "CLERGE": -5 }
+    },
+    {
+      "nomPersonnage": "Main du roi",
+      "question": "Le roi Baratheon rassemble son armée",
+      "effetGauche": "Le soutenir",
+      "effetDroite": "Rester neutre",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "CLERGE": -3,
+        "ARMEE": 3,
+        "FINANCE": -3
+      },
+      "effetJaugeDroite": { "PEUPLE": 3 }
+    },
+    {
+      "nomPersonnage": "Paysan",
+      "question": "Abondance de récoltes cette année",
+      "effetGauche": "Taxer énormément",
+      "effetDroite": "Taxer un tout petit peu",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "PEUPLE": -5,
+        "FINANCE": 10
+      },
+      "effetJaugeDroite": {
+        "PEUPLE": -3,
+        "FINANCE": 1
+      }
+    }
+  ]
+}

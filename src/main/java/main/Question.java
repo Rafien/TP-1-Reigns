@@ -31,11 +31,11 @@ public class Question {
     /**
      * les effets sur les jauges pour la réponse de gauche
      */
-    protected static Map<TypeJauge, Integer> effetJaugeGauche;
+    protected Map<TypeJauge, Integer> effetJaugeGauche;
     /**
      * les effets sur les jauges pour la réponse de droite
      */
-    protected static Map<TypeJauge, Integer> effetJaugeDroite;
+    protected Map<TypeJauge, Integer> effetJaugeDroite;
 
     /**
      * Construit une nouvelle question avec les informations données

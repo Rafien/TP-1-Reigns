@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Scanner;
+
 /**
  * Représente un personnage ayant un nom, un genre, et des jauges de Clergé, Peuple, Armée et Finances.
  *
@@ -49,6 +51,42 @@ public class Personnage {
         jaugePeuple = new Jauge("Peuple", 15 + (int)(Math.random() * (35 - 15)));
         jaugeArmee = new Jauge("Armée", 15 + (int)(Math.random() * (35 - 15)));
         jaugeFinance = new Jauge("Finances", 15 + (int)(Math.random() * (35 - 15)));
+    }
+
+    /**
+     * Cette fonction permet d'initialiser le personnage joué. Elle demande à l'utilisateur de saisir le nom du personnage
+     * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
+     */
+
+    static Personnage initPersonnage(){
+        //fonction scanName
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom du personnage: ");
+        System.out.flush();
+        String nom = scanner.nextLine();
+        //fonction scanGenre
+        System.out.println(
+                "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
+        int genre = scanner.nextInt();
+        //fonction setupGenre
+        Genre roiReine;
+        if(genre==1){
+            roiReine = Genre.ROI;
+        }else{
+            roiReine = Genre.REINE;
+        }
+        //fonction CreaPerso
+        Reigns.personnage = new Personnage(nom,roiReine);
+        return Reigns.personnage;
+    }
+
+    static void afficherInfosPerso(Personnage personnage) {
+        // fonction afficher infos
+        System.out.println(Reigns.personnage.getGenre().longRegne()
+                +" "+ Reigns.personnage.getNom());
+
+        Reigns.personnage.AfficheJauges();
+
     }
 
     /**

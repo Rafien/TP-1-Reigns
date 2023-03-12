@@ -13,7 +13,7 @@ public class Reigns {
     /**
      * le personnage joué
      */
-    private static Personnage personnage;
+    static Personnage personnage;
 
     /**
      * la banque de questions
@@ -60,29 +60,25 @@ public class Reigns {
     private static void debutDeJeu() {
         System.out.println("Bienvenue sur Reigns");
         initJeu();
-        afficherInfosPerso();
+        Personnage.afficherInfosPerso(Reigns.personnage);
 
     }
+
+
 
     private static void initJeu() {
         // tirage des questions
         initBanqueQuestions();
         System.out.println("Création du personnage...");
         //initiation du personnage
-        initPersonnage();
-    }
-
-    private static void afficherInfosPerso() {
-        // fonction afficher infos
-        System.out.println(personnage.getGenre().longRegne()
-                +" "+personnage.getNom());
-
-        personnage.AfficheJauges();
-
+        Personnage.initPersonnage();
     }
 
 
 
+
+
+    
     /**
      * Cette fonction permet de gérer la réponse à une question donnée. Elle affiche la question, demande à
      * l'utilisateur d'entrer une réponse (soit "G" soit "D") et en fonction de la réponse, elle appelle la méthode
@@ -118,31 +114,7 @@ public class Reigns {
     }
 
 
-    /**
-     * Cette fonction permet d'initialiser le personnage joué. Elle demande à l'utilisateur de saisir le nom du personnage
-     * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
-     */
 
-    private static void initPersonnage(){
-        //fonction scanName
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du personnage: ");
-        System.out.flush();
-        String nom = scanner.nextLine();
-        //fonction scanGenre
-        System.out.println(
-                "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
-        int genre = scanner.nextInt();
-        //fonction setupGenre
-        Genre roiReine;
-        if(genre==1){
-            roiReine = Genre.ROI;
-        }else{
-            roiReine = Genre.REINE;
-        }
-        //fonction CreaPerso
-        Reigns.personnage = new Personnage(nom,roiReine);
-    }
 
     /**
      * Cette fonction initialise la banque de questions. Elle crée les questions et les ajoute à la banque.
@@ -151,6 +123,7 @@ public class Reigns {
         questions = new ArrayList<>();
         //for nbQuestion init Question i
         //fonction initQi
+        // voir https://refactoring.guru/fr/design-patterns/builder ou prototype
         Question question1 = new Question(
                 "Main du roi",
                 "Le peuple souhaite libérer les prisonniers",

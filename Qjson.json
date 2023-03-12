@@ -63,6 +63,21 @@
         "PEUPLE": -3,
         "FINANCE": 1
       }
+    },
+    {
+      "nomPersonnage": "General",
+      "question": "les ennemies sont a nos portes",
+      "effetGauche": "Fuir",
+      "effetDroite": "se battre",
+      "reponse": "",
+      "effetJaugeGauche": {
+        "PEUPLE": -15,
+        "FINANCE": -10
+      },
+      "effetJaugeDroite": {
+        "ARMEE": -15,
+        "FINANCE": -10
+      }
     }
   ]
 }

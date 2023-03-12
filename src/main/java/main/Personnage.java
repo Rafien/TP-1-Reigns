@@ -172,8 +172,20 @@ public class Personnage {
      * Retourne la jauge du peuple
      * @return la jauge du peuple
      */
-    public Jauge getJaugePeuple() {
-        return jaugePeuple;
+    public Jauge getJauge(String type) {
+        if (type == "PEUPLE"){
+            return jaugePeuple;
+        }
+        if (type == "CLERGE"){
+            return jaugeClerge;
+        }
+        if (type == "ARMEE"){
+            return jaugeArmee;
+        }
+        if (type == "FINANCE"){
+            return jaugeFinance;
+        }
+        return jaugeFinance;
     }
     /**
      * Modifie la jauge du peuple

@@ -116,44 +116,14 @@ public class Jauge {
     private static void appliqueEffets(Map<TypeJauge, Integer> effets,
                                        Personnage personnage){
         for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
-            switch(effet.getKey()){
-                case ARMEE:
-                    effectArmee(effets, personnage, effet);
-                    break;
-                case CLERGE:
-                    effectClerge(effets, personnage, effet);
-                    break;
-                case FINANCE:
-                    effectFinance(effets, personnage, effet);
-                    break;
-                case PEUPLE:
-                    effectPeuple(effets, personnage, effet);
-                    break;
-            }
+            effect(effets, personnage, effet,effet.getKey().toString());
+
         }
     }
 
-    private static void effectPeuple(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
-        personnage.getJaugePeuple().setValeur(
-                personnage.getJaugePeuple().getValeur()
-                        +effet.getValue());
-    }
-
-    private static void effectFinance(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
-        personnage.getJaugeFinance().setValeur(
-                personnage.getJaugeFinance().getValeur()
-                        +effet.getValue());
-    }
-
-    private static void effectClerge(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
-        personnage.getJaugeClerge().setValeur(
-                personnage.getJaugeClerge().getValeur()
-                        +effet.getValue());
-    }
-
-    private static void effectArmee(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
-        personnage.getJaugeArmee().setValeur(
-                personnage.getJaugeArmee().getValeur()
+    private static void effect(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet, String type) {
+        personnage.getJauge(type).setValeur(
+                personnage.getJauge(type).getValeur()
                         +effet.getValue());
     }
 

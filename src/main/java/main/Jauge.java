@@ -22,6 +22,8 @@ public class Jauge {
      */
     protected int valeur;
 
+    static int size = TypeJauge.values().length;
+
     /**
      * Crée une nouvelle jauge avec le nom et la valeur spécifiés.
      *
@@ -32,6 +34,7 @@ public class Jauge {
         this.nom = nom;
         this.valeur = valeur;
     }
+
 
     /**
      * Retourne le nom de la jauge.

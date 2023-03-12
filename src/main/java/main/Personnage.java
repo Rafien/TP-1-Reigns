@@ -95,11 +95,12 @@ public class Personnage {
      * Affiche les jauges de Clergé, Peuple, Armée et Finances du personnage.
      */
     public void AfficheJauges() {
-        Jauge.afficheJauge(jaugeClerge);
-        Jauge.afficheJauge(jaugePeuple);
-        Jauge.afficheJauge(jaugeArmee);
-        Jauge.afficheJauge(jaugeFinance);
-        System.out.println();
+        for (int i = 0; i<Jauge.size; i++){
+            String nomJauge = TypeJauge.values()[i].toString();
+            Jauge tempJauge = getJauge(nomJauge);
+            Jauge.afficheJauge(tempJauge);
+        }
+
     }
 
     /**
@@ -108,18 +109,15 @@ public class Personnage {
      * @return true si le jeu est fini, false sinon
      */
     public boolean finDuJeu(){
-        if(jaugeClerge.getValeur()<=0
-                || jaugeClerge.getValeur()>=50
-                || jaugePeuple.getValeur()<=0
-                || jaugePeuple.getValeur()>=50
-                || jaugeArmee.getValeur()<=0
-                || jaugeArmee.getValeur()>=50
-                || jaugeFinance.getValeur()<=0
-                || jaugeFinance.getValeur()>=50){
-            return true;
-        }else{
-            return false;
+        for (int i = 0; i<Jauge.size; i++){
+            String nomJauge = TypeJauge.values()[i].toString();
+            Jauge tempJauge = getJauge(nomJauge);
+            if (tempJauge.getValeur()<=0 || tempJauge.getValeur()>=50){
+                return true;
+            }
         }
+        return false;
+        
     }
 
 
@@ -152,10 +150,29 @@ public class Personnage {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    /* return la jauge en fonction d'une string*/
+    public Jauge getJauge(String type) {
+        if (type == "PEUPLE"){
+            return jaugePeuple;
+        }
+        if (type == "CLERGE"){
+            return jaugeClerge;
+        }
+        if (type == "ARMEE"){
+            return jaugeArmee;
+        }
+        if (type == "FINANCE"){
+            return jaugeFinance;
+        }
+        return jaugeFinance;
+    }
     /**
      * Retourne la jauge du clergé
      * @return la jauge du clergé
      */
+
+
     public Jauge getJaugeClerge() {
         return jaugeClerge;
     }
@@ -172,20 +189,8 @@ public class Personnage {
      * Retourne la jauge du peuple
      * @return la jauge du peuple
      */
-    public Jauge getJauge(String type) {
-        if (type == "PEUPLE"){
-            return jaugePeuple;
-        }
-        if (type == "CLERGE"){
-            return jaugeClerge;
-        }
-        if (type == "ARMEE"){
-            return jaugeArmee;
-        }
-        if (type == "FINANCE"){
-            return jaugeFinance;
-        }
-        return jaugeFinance;
+    public Jauge getJaugePeuple() {
+        return jaugePeuple;
     }
     /**
      * Modifie la jauge du peuple

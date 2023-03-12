@@ -16,21 +16,24 @@ public class Reigns {
     /**
      * le personnage joué
      */
-    static Personnage personnage;
+    Personnage personnage;
 
     /**
      * la banque de questions
      */
-    private static ListQuestion questions = ListQuestion.getInstance();
+    private ListQuestion questions = ListQuestion.getInstance();
+
+    public Reigns() {
+
+    }
 
     /**
      * La méthode main lance le jeu Reigns. Il initialise les questions, le personnage,
      * affiche les jauges du personnage et lance une boucle de jeu qui se termine lorsque le personnage perd.
      * Il affiche également le nombre de tours de jeu que le personnage a joué.
      *
-     * @param args les arguments de la ligne de commande
      */
-    public static void main(String[] args){
+    public void run(){
         // début du jeu
         debutDeJeu();
         int nbTours = 0;
@@ -52,27 +55,32 @@ public class Reigns {
                         + " tours");
 
     }
+    public static void main(String[] args){
+        Reigns reigns = new Reigns();
+        reigns.run();
+    }
 
-    private static void tourDeJeu() {
+
+    private void tourDeJeu() {
         Question question = getQuestionAleatoire();
         reponseQuestion(question);
         personnage.AfficheJauges();
     }
 
-    private static void debutDeJeu() {
+    private void debutDeJeu() {
         System.out.println("Bienvenue sur Reigns");
         initJeu();
-        Personnage.afficherInfosPerso(Reigns.personnage);
+        Personnage.afficherInfosPerso(personnage);
 
     }
 
 
 
-    private static void initJeu() {
+    private void initJeu() {
         // tirage des questions
         System.out.println("Création du personnage...");
         //initiation du personnage
-        Personnage.initPersonnage();
+        personnage = Personnage.initPersonnage();
     }
 
 
@@ -86,7 +94,7 @@ public class Reigns {
      * appropriée pour appliquer les conséquences sur les jauges du personnage.
      * @param question La question à laquelle il faut répondre
      */
-    private static void reponseQuestion(Question question){
+    private void reponseQuestion(Question question){
         question.afficheQuestion();
         // récupère la réponse
         //fonction recupReponse
@@ -100,13 +108,13 @@ public class Reigns {
 
     }
 
-    private static void interpreterReponse(Question question, Scanner scanner) {
+    private void interpreterReponse(Question question, Scanner scanner) {
         System.out.println("Entrez la réponse (G ou D)");
         System.out.flush();
         question.reponse = scanner.nextLine();
     }
 
-    private static void appliquerMalus(Question question) {
+    private void appliquerMalus(Question question) {
         if(question.reponse.equals("G")){
             Jauge.appliqueEffetsGauche(personnage, question);
         }else{
@@ -118,7 +126,7 @@ public class Reigns {
      * Cette fonction permet de tirer une question aléatoire dans la banque de questions.
      * @return Une question aléatoire
      */
-    private static Question getQuestionAleatoire(){
+    private Question getQuestionAleatoire(){
         int numQuestion = (int) (Math.random()* questions.getLquestions().size());
         return questions.getLquestions().get(numQuestion);
     }

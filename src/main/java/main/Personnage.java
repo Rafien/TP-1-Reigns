@@ -79,16 +79,15 @@ public class Personnage {
             roiReine = Genre.REINE;
         }
         //fonction CreaPerso
-        Reigns.personnage = new Personnage(nom,roiReine);
-        return Reigns.personnage;
+        return new Personnage(nom,roiReine);
     }
 
     static void afficherInfosPerso(Personnage personnage) {
         // fonction afficher infos
-        System.out.println(Reigns.personnage.getGenre().longRegne()
-                +" "+ Reigns.personnage.getNom());
+        System.out.println(personnage.getGenre().longRegne()
+                +" "+ personnage.getNom());
 
-        Reigns.personnage.AfficheJauges();
+        personnage.AfficheJauges();
 
     }
 

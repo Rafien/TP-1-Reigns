@@ -118,26 +118,42 @@ public class Jauge {
         for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
             switch(effet.getKey()){
                 case ARMEE:
-                    personnage.getJaugeArmee().setValeur(
-                            personnage.getJaugeArmee().getValeur()
-                                    +effet.getValue());
+                    effectArmee(effets, personnage, effet);
                     break;
                 case CLERGE:
-                    personnage.getJaugeClerge().setValeur(
-                            personnage.getJaugeClerge().getValeur()
-                                    +effet.getValue());
+                    effectClerge(effets, personnage, effet);
                     break;
                 case FINANCE:
-                    personnage.getJaugeFinance().setValeur(
-                            personnage.getJaugeFinance().getValeur()
-                                    +effet.getValue());
+                    effectFinance(effets, personnage, effet);
                     break;
                 case PEUPLE:
-                    personnage.getJaugePeuple().setValeur(
-                            personnage.getJaugePeuple().getValeur()
-                                    +effet.getValue());
+                    effectPeuple(effets, personnage, effet);
                     break;
             }
         }
+    }
+
+    private static void effectPeuple(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
+        personnage.getJaugePeuple().setValeur(
+                personnage.getJaugePeuple().getValeur()
+                        +effet.getValue());
+    }
+
+    private static void effectFinance(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
+        personnage.getJaugeFinance().setValeur(
+                personnage.getJaugeFinance().getValeur()
+                        +effet.getValue());
+    }
+
+    private static void effectClerge(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
+        personnage.getJaugeClerge().setValeur(
+                personnage.getJaugeClerge().getValeur()
+                        +effet.getValue());
+    }
+
+    private static void effectArmee(Map<TypeJauge, Integer> effets, Personnage personnage, Map.Entry<TypeJauge, Integer> effet) {
+        personnage.getJaugeArmee().setValeur(
+                personnage.getJaugeArmee().getValeur()
+                        +effet.getValue());
     }
 }
